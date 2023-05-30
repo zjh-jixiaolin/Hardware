@@ -36,9 +36,11 @@
 |                  内置`LED`                   |      内置红色`LED`通电即亮；内置蓝色`LED`连接到`GPIO2`;      |
 | `USB` 到 `UART` 桥（计算机与嵌入式设备通信） | `cp210x`芯片，负责`开发板`和`电脑`进行通信。驱动下载：[链接](https://www.qutaojiao.com/997.html) |
 
+![image-20230530114843912](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301148036.png)
 
 
 
+## 1. C语言代码基础
 
 
 
