@@ -94,7 +94,7 @@ void loop() {
 
 变量名 = 赋值；
 
-![image-20230530120737068](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230530120737068.png)
+![image-20230530120737068](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301213713.png)
 
 **数据类型：**
 
