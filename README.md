@@ -88,7 +88,7 @@ void loop() {
 
 当我们需要芯片存储一些可能会变化的值时，这时就需要使用变量。
 
-**变量声明（2种写法）：**
+### 变量声明（2种写法）
 
 数据类型 变量名；
 
@@ -96,13 +96,13 @@ void loop() {
 
 ![image-20230530120534125](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301205643.png)
 
-**变量赋值：**
+### 变量赋值
 
 变量名 = 赋值；
 
 ![image-20230530120737068](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301213713.png)
 
-**数据类型：**
+### 数据类型
 
 使用变量时，需要根据存储的数据范围，选择不同的数据类型。
 
