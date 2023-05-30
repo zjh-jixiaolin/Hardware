@@ -90,6 +90,44 @@ void loop() {
 
 ![image-20230530120534125](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301205643.png)
 
+**变量赋值：**
+
+变量名 = 赋值；
+
+![image-20230530120737068](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230530120737068.png)
+
+**数据类型：**
+
+使用变量时，需要根据存储的数据范围，选择不同的数据类型。
+
+```c
+32位的芯片中：
+有符号整数：
+char -128 ~ 127
+short -32768 ~ 32767
+int -2147483648 ~ 2147483647
+
+小数：
+float是单精度浮点数，内存占4个字节，有效数字8位，表示范围是 -3.40E+38~3.40E+38。 3.40E+38 = 3.4×10的38次方。
+double是双精度浮点数，内存占8个字节，有效数字16位，表示范围是-1.79E+ 308~-1.79E+308。
+两者处理速度不同，CPU处理float的速度比处理double快。double的精度高，double消耗内存是float的两倍。
+
+无符号整数：
+unsigned char 0 ~ 256
+unsigned short 0 ~ 65536
+unsigned int 0 ~ 4294967295
+无符号整数别名：
+typedef unsigned char  uint8_t
+typedef unsigned short uint16_t
+typedef unsigned int   uint32_t 
+
+根据实际需要装的数据大小、类型进行申请即可，例如：
+纸币面额: 1 5 10 20 50 100 可以使用uint8_t
+你的账户余额：uint32_t 
+室外温度: -20.1 ~ 40.5 可以使用float
+
+```
+
 
 
 
