@@ -46,7 +46,7 @@
 
 ## 1. 代码基础 — 进阶
 
-### 基础程序结构
+### 1.1 基础程序结构
 
 ---
 
@@ -67,7 +67,7 @@ void loop() {
 // 上方两个函数为Arduino固定函数，可理解为代码运行入库，每次开机都从setup开始运行。
 ```
 
-### 注释
+### 1.2 注释
 
 ---
 
@@ -82,7 +82,7 @@ void loop() {
 */
 ```
 
-### 数据类型 - 变量 
+### 1.3 数据类型 - 变量 
 
 ---
 
@@ -111,6 +111,7 @@ void loop() {
   ```c
   #include <Arduino.h>  
   
+  // 展示命名
   uint8_t my_age;
   long my_money = 1000000;
   float my_height = 1.88;
@@ -120,7 +121,7 @@ void loop() {
 
 
 
-#### 数据类型
+#### 1.4 数据类型
 
 使用变量时，需要根据存储的数据范围，选择不同的数据类型。
 
@@ -153,23 +154,166 @@ void loop() {
 >
 >室外温度：`-20.1 ~ 40.5` 可以使用 `float`
 
-#### 数据输出格式
+#### 1.5 数据输出格式
 
-| 输出格式 | 作用 |
-| :------: | :--: |
-|          |      |
-|          |      |
-|          |      |
+| 输出格式 |     作用     |
+| :------: | :----------: |
+|   `%d`   |     整形     |
+|   `%s`   |    字符串    |
+|   `%f`   | 单精度浮点型 |
+
+#### 案例：
+
+```c
+#include <Arduino.h>  
+
+uint8_t my_age;
+long my_money = 1000000;
+float my_height = 1.88;
+
+void setup() {
+    //初始化串口，波特率位9600
+    Serial.begin(9600);
+    //打印“setup”字符到电脑，\n为换行符
+    my_age = 19;
+    Serial.printf("setup\n");
+    Serial.printf("age = %d\n",my_age );
+    Serial.printf("money = %d\n",my_money );
+    Serial.printf("height = %.2f\n",my_height );
+}
+
+void loop() {
+
+}
+----------------------------------------------------------
+# 输出结果
+setup
+age = 19
+money = 1000000
+height = 1.88
+```
 
 
 
-#### 
+<br />
 
 
 
+### 1.6 数据类型 — 常量与宏定义
+
+---
+
+需要芯片帮我们存储永远**固定不变**的值，这时候需使用 **常量** 或 **宏定义**。
+
+#### 常量
+
+![image-20230530163816486](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230530163816486.png)
+
+#### 宏定义
+
+![image-20230530163959693](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230530163959693.png)
+
+#### 案例
+
+```c
+#include <Arduino.h>  
+
+// 常量
+const float PI_NUM1 = 3.1415;
+
+// 宏定义
+#define PI_NUM2 3.1415926
+
+void setup() {
+    //初始化串口，波特率位9600
+    Serial.begin(9600);
+    Serial.printf("setup\n");
+    // 常量
+    Serial.printf("Const_PI = %f\n",PI_NUM1);
+    // 宏定义
+    Serial.printf("Define_PI = %f\n",PI_NUM2);
+
+}
+
+void loop() {
+
+}
+----------------------------------------------------------
+# 输出结果setup
+setup
+Const_PI = 3.141500
+Define_PI = 3.141593
+```
 
 
 
+<br />
+
+
+
+### 1.7 运算符
+
+---
+
+在程序中如何使用算数来操作变量的运算？直接使用运算符即可。
+
+| 运算符 |    作用     |
+| :----: | :---------: |
+|  `+`   |     加      |
+|  `-`   |     减      |
+|  `*`   |     乘      |
+|  `/`   |    整除     |
+|  `%`   |    取余     |
+| `a ++` | `a = a + 1` |
+| `a --` | `a = a - 1` |
+
+#### 案例
+
+```c
+#include <Arduino.h>  
+
+uint8_t a = 10;
+uint8_t b = 5;
+uint8_t c = 0;
+
+
+void setup() {
+    //初始化串口，波特率位9600
+    Serial.begin(9600);
+    // 加 
+    c = a + b;
+    Serial.printf("c = %d\n",c); // 结果：15
+
+    // 减
+    c = a - b;
+    Serial.printf("c = %d\n",c); // 结果：5
+
+    // 乘
+    c = a * b;
+    Serial.printf("c = %d\n",c); // 结果：50
+
+    // 整除
+    c = b / 2;
+    Serial.printf("c = %d\n",c); // 结果：2
+
+    // 取余
+    c = b % 2;
+    Serial.printf("c = %d\n",c); // 结果：1
+
+    // a++
+    a++;
+    Serial.printf("a = %d\n",a); // 结果：11
+
+    // b--
+    b--;
+    Serial.printf("b = %d\n",b); // 结果：4
+
+}
+
+void loop() {
+
+}
+```
 
 
 
