@@ -7,9 +7,17 @@
 
 官网&文档：[[ESP32官网]](https://www.espressif.com/zh-hans/products/socs/esp32)  [[PDF]](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_cn.pdf)
 
+仿真平台：[Wokwi](https://wokwi.com)
+
 ## 0. ESP32 简介
 
 `ESP32` 是一款由乐鑫科技（`Espressif`）推出的低成本、低功耗、高级程度的微控制器，采用了双核 `CPU` 架构，主频高达 `240MHz`，并且有 `Wi-Fi` 和 蓝牙通信功能，广泛应用于物联网、智能家居、机器人等领域。
+
+|         ESP32         |                           配置                            |
+| :-------------------: | :-------------------------------------------------------: |
+| `Flash`（闪存存储器） |           `4MB`，用于存储程序代码、数据和文件等           |
+|    `SRAM`（内存）     |          `520KB`，用于存储程序和数据的运行时内存          |
+| 时钟速度（运行速度）  | `240MHz`，ESP32芯片的主频，用于控制处理器和外设的运行速度 |
 
 <img src="https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301022058.png" alt="image-20230530102055658" style="zoom: 80%;" />
 
