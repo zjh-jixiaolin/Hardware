@@ -215,11 +215,11 @@ height = 1.88
 
 #### 常量
 
-![image-20230530163816486](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230530163816486.png)
+![image-20230530163816486](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301725370.png)
 
 #### 宏定义
 
-![image-20230530163959693](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230530163959693.png)
+![image-20230530163959693](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305301725828.png)
 
 #### 案例
 
@@ -325,7 +325,128 @@ void loop() {
 
 
 
+<br />
 
+
+
+### 1.8 控制循环 — 判断、循环
+
+---
+
+让芯片拥有逻辑执行能力，如当温度大于多少时，打印信息提醒。
+
+#### If 判断
+
+```c
+// IF 判断
+if(a > b){
+    
+} else{
+    
+}
+```
+
+#### While 循环
+
+```c
+// while 循环
+while(a > b){
+    
+}
+```
+
+#### For 有限循环
+
+```c
+（初始值，判断是否满足条件，满足条件执行下方{}内容并进行++或--操作）
+for(uint8_t i = 0； i < 24; i++)
+{
+    
+}
+```
+
+#### 案例
+
+```c
+-------------------------------------------------- # if - 判断
+#include <Arduino.h>  
+
+// 温度
+uint8_t temperature = 25;
+
+void setup() {
+    // 初始化串口，波特率位9600
+    Serial.begin(9600);
+
+}
+
+void loop() {
+    // if 判断语句
+    if(temperature >= 30){
+      Serial.printf("温度 = %d\n",temperature);
+      Serial.printf("温度过高，请开空调\n");
+      temperature = 25;
+    } else{
+      delay(1000);
+      Serial.printf("温度 = %d\n",temperature);
+      temperature ++;
+    } 
+}
+
+-------------------------------------------------- # while - 循环
+#include <Arduino.h>  
+
+// 时间
+uint8_t c_time = 0;
+
+void setup() {
+    //初始化串口，波特率位9600
+    Serial.begin(9600);
+    
+    // while循环语句
+    while (c_time <= 24)
+    {
+      if(c_time >= 24){
+        c_time = 0;
+      } 
+      Serial.printf("现在是%d点\n",c_time);
+      c_time ++; 
+      delay(1000);  
+    }
+}
+
+void loop() {
+
+}
+-------------------------------------------------- # for 有限循环
+#include <Arduino.h>  
+
+void setup() {
+    // 初始化串口，波特率位9600
+    Serial.begin(9600);
+    // for 有限循环
+    for (uint8_t ctime = 0; ctime < 24; ctime++)
+    {
+      Serial.printf("现在的时间是%d点\n",ctime);
+      delay(100);
+    }
+    
+}
+
+void loop() {
+    
+}
+```
+
+
+
+<br />
+
+
+
+### 1.9 函数
+
+### 
 
 
 
