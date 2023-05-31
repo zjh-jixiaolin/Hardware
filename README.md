@@ -498,6 +498,8 @@ void loop() {
 
 ### 1.9 局部变量和全局变量
 
+---
+
 ```c
 #include <Arduino.h>  
 
@@ -546,9 +548,7 @@ void loop() {
 
 `LED（发光二极管）` 两端存在 **电压差**，有一定的电流流过时会亮起。电流可以理解为水流，电压差可以理解为水位差，当两个点水位高度不一样时，水流会从高水位流向低水位。
 
-
-
-![image-20230531002850834](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230531002850834.png)
+![image-20230531002850834](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305311806450.png)
 
 需注意：流过 `LED` 的电流需要在一定范围内，否则会烧坏 `LED`，一般小于 `20mA`，所以我们就需要**串联电阻分压**，那串联的电阻需要多大阻值？
 
@@ -564,7 +564,7 @@ void loop() {
 
 实际上这是非常合理的，因为大多数电路中，`LED` 只是一个 提示灯，对亮度没有要求，反而希望把功耗降低，所以需要增大限流电阻来实现超低电流，像产品中的贴片LED去到 `0.5ma`也是能看清楚灯光的。
 
-![image-20230531014229931](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305310152298.png)
+![image-20230531180649816](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305311806436.png)
 
 #### 代码实现
 
@@ -605,7 +605,9 @@ void loop() {
 
 ## 3. 串口通信
 
-串行通讯端口，简称串口，也称 `COM` 口。用于设备与设备、设备与电脑间的通信。
+### 3.1 串口
+
+串行通讯端口，简称 **串口**，也称 `COM` 口。用于设备与设备、设备与电脑间的通信。
 
 串行接口的数据是通过一条线一位位地顺序传送的。
 
@@ -615,7 +617,7 @@ void loop() {
 
 #### 应用场景
 
-与电脑上位机软件通信、与Android工控机通讯
+与电脑上位机软件通信、与Android工控机通讯。
 
 ![image-20230531180348592](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305311803882.png)
 
