@@ -7,7 +7,9 @@
 
 官网&文档：[[ESP32官网]](https://www.espressif.com/zh-hans/products/socs/esp32)  [[PDF]](https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_esp32-wroom-32ue_datasheet_cn.pdf)
 
-仿真平台：[Wokwi](https://wokwi.com)
+硬件仿真平台：[Wokwi](https://wokwi.com)
+
+在线交互电路平台：[Falstad](https://www.falstad.com/circuit/circuitjs.html?ctz=CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgoqoQFMBaMMAKADcQM8AWEQ-TjxDc4UMSOpUp0BCwDu4NFRFUwSvgMgswhFMgx6Vi0Ub0ATOgDMAhgFcANgBcG9umfBjpkVgCcQxfmFRMEgJI1U4eXAQ3n48QVjNKJjlYMgDIKlk9Tjo0I14rQBnBMz-FHjwjxt7Iroo4gqygNSsoA)
 
 ## 0. ESP32 简介
 
@@ -534,19 +536,88 @@ void loop() {
 
 ### 2.1 点灯原理：
 
-`LED` 灯有着不同的封装，根据不同的应用场景，有的需要 **插件**`LED` 或 **板载**`LED`，统称 **发光二极管**。
+`LED` 灯有着不同的封装，根据不同的应用场景，有的需要 **插件**`LED` 或 **贴片**`LED`，统称 **发光二极管**。
+
+**插件`LED`** 灯珠 **长**引脚为 **正极**，**短**引脚为 **负极**。完全亮起电流是 `20mA` 左右。
+
+**贴片`LED`** 完全亮起电流是 `5mA` 左右。
 
 ![image-20230531001858687](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305310019719.png)
 
-`LED`
+`LED（发光二极管）` 两端存在 **电压差**，有一定的电流流过时会亮起。电流可以理解为水流，电压差可以理解为水位差，当两个点水位高度不一样时，水流会从高水位流向低水位。
 
 
 
+![image-20230531002850834](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230531002850834.png)
+
+需注意：流过 `LED` 的电流需要在一定范围内，否则会烧坏 `LED`，一般小于 `20mA`，所以我们就需要**串联电阻分压**，那串联的电阻需要多大阻值？
+
+#### 插件LED的限流电阻计算
+
+![image-20230531012857458](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305310129518.png)
+
+例如：供电电压为 `3.3V`，黄色插件`LED`。
+
+根据公式 `V = I * R`，则 `R=(3.3 - 1.8) / 0.02`（`20mA`= `0.02A`）,则`R = 75Ω`
+
+但很多时候你看到别人设计的电路中，`LED` 串联的电阻去到**几百欧**或**几千欧**都有，是设计错了吗？
+
+实际上这是非常合理的，因为大多数电路中，`LED` 只是一个 提示灯，对亮度没有要求，反而希望把功耗降低，所以需要增大限流电阻来实现超低电流，像产品中的贴片LED去到 `0.5ma`也是能看清楚灯光的。
+
+![image-20230531014229931](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305310152298.png)
+
+#### 代码实现
+
+```c
+# 通过以下函数控制 IO引脚的输出电平高低
+pinMode(引脚编号，输出/输入)
+digitalWrite(引脚编号，电平高/底)
+--------------------------------------------------
+// 头文件
+#include <Arduino.h>  
+
+// 定义LED灯引脚为常量
+#define PIN_LED 23
+
+void setup() {
+    // 初始化引脚为输出
+    pinMode(PIN_LED,OUTPUT);
+}
+
+void loop() {
+    // 设置为高电平(3.3V)，1s后设置为低电平(0V)，再1s后重复
+    digitalWrite(PIN_LED,HIGH);
+    delay(1000);
+    digitalWrite(PIN_LED,LOW);
+    delay(1000);
+}
+```
 
 
 
+![image-20230531015625365](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305310156683.png)
 
 
+
+<br />
+
+
+
+## 3. 串口通信
+
+串行通讯端口，简称串口，也称 `COM` 口。用于设备与设备、设备与电脑间的通信。
+
+串行接口的数据是通过一条线一位位地顺序传送的。
+
+<img src="https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305311801824.png" alt="image-20230531180113470" style="zoom: 80%;" />![download_image](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305311802463.gif)
+
+>串口模块：以太网、`WiFi`、蓝牙、`Zigbee`、`Lora`等串口模块。
+
+#### 应用场景
+
+与电脑上位机软件通信、与Android工控机通讯
+
+![image-20230531180348592](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305311803882.png)
 
 
 
