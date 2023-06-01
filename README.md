@@ -644,6 +644,267 @@ void loop() {
 >1. `Arduino` 将发送的数据转化为**二进制**，随后逐个发出。
 >2. 确定 `Arduino` 与 电脑之间的波特率**相同**，才能进行通讯。
 
+#### 代码实现
+
+```c
+# 通过以下函数可实现串口通信
+Serial.begin(波特率) // 初始化串口
+Serial.printf("内容") // 串口输出
+Serial.available() // 检查缓冲区中是否有可用数据。不能读取缓冲区数据，一般配置Serial.read()使用
+Serial.read() // 接受缓冲区数据
+
+--------------------------------------------------
+#include <Arduino.h>  
+
+void setup() {
+    // 初始化串口
+    Serial.begin(9600);
+    // 单片机发送数据到电脑端
+    Serial.printf("setup\n");
+
+}
+
+void loop() {
+    // 接收电脑端数据
+    while (Serial.available())
+    {
+        // 接收数据
+        uint8_t date = Serial.read();
+        // 按A输出 get date = 65。A为ASCII值，对应十进制为65
+        Serial.printf("get date = %d\n",date); 
+    }
+}
+```
+
+
+
+<br />
+
+
+
+## 4. 按键输入
+
+`LED`点灯时我们将引脚设置为 **输出** 模式，以此来实现 `GPIO` 控制输出来控制 `LED` 亮灭的效果。
+
+`GPIO` 除了有 输出 模式，还有 **输入** 模式。输入模式一般用于**读取外部传感器值**或**按键**的状态。
+
+### 4.1 按键原理
+
+通过 `IO` 读取引脚电平，判断是否有信号触发，即按键是否被按下。
+
+如图，按键未按下时，`1` 和 `2` 是单独连通的、`3` 和 `4` 是单独连通的。
+
+当按键按下时，所有的引脚连通，可看下方原理图。
+
+![image-20230531204834468](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305312048372.png)
+
+```c
+// 读取引脚的电平信号
+int a = digitalRead(引脚编号);
+```
+
+>什么是电压？什么是电平？高电平？低电平？
+>
+>`TTL`电源电压是 `3.3V`，高电平是`2.4V-3.3V`，低电平是`0V-0.8V`，按照惯例，`1`代表高电平，`0`代表低电平。
+
+#### 代码实现
+
+```c
+#include <Arduino.h>  
+
+#define PIN_Key 4
+
+void setup() {
+    // 设置引脚为输入模式,并在引脚上启动上拉电阻
+    // 当按键按下后会接地变为低电平，松开的话引脚处于悬空没有接触到任何东西，故需把IO设为上拉。
+    pinMode(PIN_Key,INPUT_PULLUP);
+    // 初始化串口
+    Serial.begin(9600);
+
+}
+
+void loop() {
+    // 读取电平信号
+    if (digitalRead(PIN_Key) == LOW)
+    {
+        Serial.printf("Key_Click\n");
+        delay(1000);
+    }
+}
+```
+
+![image-20230531214122172](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305312141506.png)
+
+### 4.2 按键消抖
+
+---
+
+当按下或释放一个按键时，由于机械接触的抖动等原因，可能会导致电路中出现  **多次按下** 的现象。故需要进行按键消抖。
+
+![image-20230531214425986](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305312144574.png)
+
+#### 代码实现
+
+```c
+#include <Arduino.h>
+
+#define PIN_Key 4
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  //设置为上拉输入，初始化后默认电平为高
+  pinMode(PIN_Key, INPUT_PULLUP);  
+
+  Serial.print("setup\n");
+}
+
+void loop() {
+  // 此处进行按键去抖
+  if(digitalRead(PIN_Key)==LOW){
+    delay(10);
+    if(digitalRead(PIN_Key)==LOW){
+      Serial.print("KEY Click\n");
+      delay(1000);
+    }
+  }
+}
+```
+
+### 4.3 按键控制LED
+
+---
+
+#### 代码实现
+
+```c
+#include <Arduino.h>
+
+#define PIN_KEY 14
+#define PIN_LED 25
+
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  // 设置为上拉输入，初始化后默认电平为高
+  pinMode(PIN_KEY, INPUT_PULLUP);  
+  // 设置LED引脚为输出模式
+  pinMode(PIN_LED, OUTPUT);
+  Serial.print("setup\n");
+}
+
+void loop() {
+  if(digitalRead(PIN_KEY) == LOW)
+  {
+    // 按下时，LED引脚为高电平
+    digitalWrite(PIN_LED,HIGH);
+  } else{
+    // 松开时，LED引脚为低电平
+    digitalWrite(PIN_LED,LOW);
+  }
+}
+```
+
+![image-20230531221153418](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202305312211013.png)
+
+
+
+<br />
+
+
+
+## 5. 软件定时器
+
+### 5.1 定时器函数
+
+---
+
+```c
+# 通过以下函数可实现软件定时器功能。
+#include <Ticker.h> // 导入 定时器 头文件
+
+Ticker timer1; // 初始化一个定时器
+
+void 函数名(){
+    Serial.printf("running"); // 定时到自动触发的函数
+}
+
+timer1.once_ms(时间，函数名); // 只执行一次的定时器
+timer1.attach_ms(时间，函数名); // 重复执行的定时器
+--------------------------------------------------
+#include <Arduino.h>  
+#include <Ticker.h>
+
+Ticker timer1; // 初始化定时器
+
+void timer_running(){
+    Serial.printf("running\n");
+}
+
+void setup() {
+    Serial.begin(9600);
+    timer1.attach_ms(1000,timer_running); // 使用定时器
+
+}
+
+void loop() {
+
+}
+```
+
+
+
+<br />
+
+
+
+## 6. 电位器
+
+前面我们无论是读取输入或是控制输出，都只有高电平（`0` 和 `1`）的概念，简称常说的数字电路，而实际项目过程中，无论是温度、湿度、重量、电压往往都是一个范围内的数值。
+
+接下来我们来看看模拟电路，通过引脚读取一定范围内变化的值。
+
+### 6.1 电位器原理
+
+---
+
+![image-20230601120514526](C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20230601120514526.png)
+
+电位器属于 **无极性** 器件，**可变电阻** 的一种，三个触点通过旋转旋钮改变2号脚的位置，从而改变阻值的大小，1脚和3脚分别接开发板的3.3V和GND，2脚接模拟输入引脚。
+
+无论是温度传感器、湿度传感器都是把环境的温湿度通过材料的特性，最终转换为引脚能够测量的电压值，所以，一旦学会读取电位器的电压，即可使用同样的方式读取温湿度、重量传感器的数据，仅仅是转换表或公式的不同而已。
+
+>**无极性器件**是指可以在电路中任意方向使用的电子元件。这些元件不需要关心它们的正负极性，因为它们没有明确的正负极性。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
