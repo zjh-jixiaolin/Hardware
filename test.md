@@ -242,7 +242,7 @@
 
 这里只讨论 `M.2`接口的 `SSD`，`SSD`即使是 `M.2`接口的，也分走`SATA`通道和 `PCIe`通道。
 
-![image-20230711114220712](../../../AppData/Roaming/Typora/typora-user-images/image-20230711114220712.png)
+![image-20230711114220712](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711114220712.png)
 
 首先要知道，`NVMe`和 `AHCI`是硬盘的接口协议。`NVMe`协议是专门为`PCIe`通道的固态硬盘设计的。而`ACHI`是专门为 `SATA`通道的硬盘设计的，现如今很多人把 `ACHI`协议叫做`SATA` 协议，因此下方距离就用 `SATA`协议这个名称。
 
@@ -250,11 +250,11 @@
 
 - 走 `SATA`的**速度**跟传统 `SATA`接口没区别，就是接口变为 `M.2`，具体如下：
 
-![image-20230711134700199](../../../AppData/Roaming/Typora/typora-user-images/image-20230711134700199.png)
+![image-20230711134700199](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711134700199.png)
 
 - 走 `PCIe` 的就是常说的 `NVMe` ，**性能** 比 `SATA` 强了很多倍。
 
-![image-20230711134952818](../../../AppData/Roaming/Typora/typora-user-images/image-20230711134952818.png)
+![image-20230711134952818](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711134952818.png)
 
 >**总结：**
 >
