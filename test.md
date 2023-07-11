@@ -89,7 +89,11 @@
 
 参考链接①：https://hovertree.com/h/bjaf/ovy7u369.htm
 
+参考链接②：https://baijiahao.baidu.com/s?id=1758812682458870950&wfr=spider&for=pc
 
+参考链接③：https://zhuanlan.zhihu.com/p/466434191
+
+参考链接④：https://zhuanlan.zhihu.com/p/491944861
 
 ### 机械硬盘 — 概念
 
@@ -178,7 +182,7 @@
 
 ### SATA 和 M.2 的性能
 
-#### SATA 接口分类
+#### SATA 接口分类（SATA 1.0、SATA 2.0、SATA 3.0）
 
 `SATA` 是一种常用于计算机存储设备的接口标准，它有三种常见的分类：
 
@@ -200,7 +204,7 @@
 >
 >​	`SATA 3.0`理论传输速率为 `750 MB/s`，但由于实际过程中需考虑协议开销和数据传输等因素，实际 `SATA 3.0`接口能达到最大传输数量为 `550 MB/s ~ 600 MB/s`。
 
-#### M.2 接口分类
+#### M.2 接口分类（B Key 、M Key、B&M Key ）
 
 `M.2 SSD` 常见的类型有三种：`2230`、`2240`、`2280`，通常用 `Type xxyy`的方式表示，`xx`表示 **宽度**，`yy` 表示长度，单位为 **毫米**。举个例子 `Type 2230`表示其 **宽度22mm，长度30mm**;
 
@@ -210,7 +214,7 @@
 
 - `B Key` ：支持 `SATA` 协议和 `PCIe * 2`通道，常用于连接 `SATA SSD（M.2 SATA协议 SSD）` ；
 
-- `M Key`：支持`PCIe ×4` 通道和 `SAT`A 协议，通常用于连接 `PCIe NVMe SSD`；
+- `M Key`：支持`PCIe ×4` 通道和 `SATA` 协议，通常用于连接 `PCIe NVMe SSD`；
 
 ![image-20230711104235781](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711104235781.png)
 
@@ -220,9 +224,71 @@
 
 一开始，`B Key`只能在`B Key`的插槽接口中，`M Key`只能在`M Key`的插槽接口中，随着 `M Key` 接口的普及，越来越多电脑主板只`M Key` 接口，`B Key` 的 `SSD` 根本插不上去，于是厂商们又设计了一个 `B & M Key `接口的 `SSD`。
 
+- `B & M Key`：支持 `SATA` 协议和 `PCIe * 2`通道，由于 `M Key`的普及，`B & M Key`只是弥补了`M Key`不支持 `B Key`的不足，因此通常用于连接`SATA SSD（M.2 SATA协议 SSD）`；
+
+>注意：`SSD` 金手指有 `B Key` 、`M Key`、`B&M Key` 三种，但**主板**上的 `M.2` 接口只有 `B Key` 和 `M Key` 两种。
+
 ![image-20230711104437234](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711104437234.png)
 
 ![image-20230711105103035](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711105103035.png)
 
 ![image-20230711105229991](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711105229991.png)
+
+#### M.2 SSD 协议
+
+按照[固态硬盘接口协议类型](####接口协议类型)分类，可以把硬盘分为 走`SATA` 通道的`SSD` 和 走`PCIe` 通道的`SSD`。 
+
+![image-20230711113409489](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711113409489.png)
+
+这里只讨论 `M.2`接口的 `SSD`，`SSD`即使是 `M.2`接口的，也分走`SATA`通道和 `PCIe`通道。
+
+![image-20230711114220712](../../../AppData/Roaming/Typora/typora-user-images/image-20230711114220712.png)
+
+首先要知道，`NVMe`和 `AHCI`是硬盘的接口协议。`NVMe`协议是专门为`PCIe`通道的固态硬盘设计的。而`ACHI`是专门为 `SATA`通道的硬盘设计的，现如今很多人把 `ACHI`协议叫做`SATA` 协议，因此下方距离就用 `SATA`协议这个名称。
+
+`M.2`接口有两种，一种是走`SATA（ACHI）`协议的，另外一种是走 `PCIe（NVMe）`的。
+
+- 走 `SATA`的**速度**跟传统 `SATA`接口没区别，就是接口变为 `M.2`，具体如下：
+
+![image-20230711134700199](../../../AppData/Roaming/Typora/typora-user-images/image-20230711134700199.png)
+
+- 走 `PCIe` 的就是常说的 `NVMe` ，**性能** 比 `SATA` 强了很多倍。
+
+![image-20230711134952818](../../../AppData/Roaming/Typora/typora-user-images/image-20230711134952818.png)
+
+>**总结：**
+>
+>根据上方对 `M.2`接口型号的了解，得出如下：
+>
+>- `B Key` 支持 `SATA`协议 和 `PCIe * 2`通道
+>- `M Key` 支持 `SATA` 协议 和  `PCIe * 4`通道
+>- `B & M Key` 支持 `SATA`协议 和 `PCIe * 2`通道
+>
+>在市面上可购买的 `SSD` 中，绝大多数的 `B & M Key`的 `SSD` 都是不支持 `NVMe`协议的，只支持 `SATA` 协议。而 `M Key`的 `SSD` 都支持 `NVMe`协议（对于 `B Key`目前已经被淘汰）；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
