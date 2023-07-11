@@ -202,6 +202,27 @@
 
 #### M.2 接口分类
 
+`M.2 SSD` 常见的类型有三种：`2230`、`2240`、`2280`，通常用 `Type xxyy`的方式表示，`xx`表示 **宽度**，`yy` 表示长度，单位为 **毫米**。举个例子 `Type 2230`表示其 **宽度22mm，长度30mm**;
 
+![image-20230711101529296](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711101529296.png)
 
-https://zhuanlan.zhihu.com/p/466434191?utm_id=0
+`M.2` 接口规范定义了多种不同的 **键位（Key）** 类型，以支持不同协议和功能，按照接口类型，可分为 `B Key` 和 `M Key`：
+
+- `B Key` ：支持 `SATA` 协议和 `PCIe * 2`通道，常用于连接 `SATA SSD（M.2 SATA协议 SSD）` ；
+
+- `M Key`：支持`PCIe ×4` 通道和 `SAT`A 协议，通常用于连接 `PCIe NVMe SSD`；
+
+![image-20230711104235781](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711104235781.png)
+
+`B Key` 的防呆键位于插槽的**左方**，`M Key`则在**右方**。两种类型的插槽其短边接脚数量有所差异，具体如下：
+
+- `B Key` 左侧有 `6` 个触点，`M Key` 右侧有 `5` 个触点。
+
+一开始，`B Key`只能在`B Key`的插槽接口中，`M Key`只能在`M Key`的插槽接口中，随着 `M Key` 接口的普及，越来越多电脑主板只`M Key` 接口，`B Key` 的 `SSD` 根本插不上去，于是厂商们又设计了一个 `B & M Key `接口的 `SSD`。
+
+![image-20230711104437234](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711104437234.png)
+
+![image-20230711105103035](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711105103035.png)
+
+![image-20230711105229991](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/image-20230711105229991.png)
+
