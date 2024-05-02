@@ -10,7 +10,7 @@
 
 > **NDS**  于2004年12月2日在 **日本地区**发售。而后于2005年3月11日在 **欧洲地区** 发售。在 **中国大陆** ，NDS被称为 **iQue DS(iDS)**，于2005年7月23日发售（神游代理）。
 
-![image-20240502203603026](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405022036161.png)
+![image-20240502203805817](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405022038754.png)
 
 
 
