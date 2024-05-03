@@ -68,26 +68,27 @@ NDS 20周年：https://baijiahao.baidu.com/s?id=1784332871502510100&wfr=spider&f
 
 >优点：相较于前代硬件有所提升，ARM9的主频翻了一倍，内存比NDSL多4倍（NDSL：4MB，NDSi：16MB），增加了摄像头，支持更好的音频效果。
 >
->缺点：不兼容GBA卡槽（前期游戏阵容不足，才带GBA卡槽）
+>缺点：不兼容GBA卡槽（前期游戏阵容不足，才兼容GBA卡槽）
 
 ![img](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405040330440.jpeg)
 
+## 4.NDSi LL
 
+​	[Nintendo](https://baike.baidu.com/item/Nintendo/6732440?fromModule=lemma_inlink) DSi LL（NDSi LL） 是 **DSi系列** 的一个变种型号，相比于 NDSi，具有**更大屏幕**和整体尺寸，旨在提供更好的娱乐体验。发售于2009年11月21日。
 
+- 发售价： 20000日元（约1460人民币 — 汇率：100日元 = 7.3人民币）
+- 重量：314克
+- 按键：采用 **锅仔片** 按键
+- 屏幕：反射型透过式TFT彩色液晶屏（5级亮度调节）分辨率（256 x 192）屏幕尺寸（4.2英寸）
+  - 上下屏均采用 **相同** 分辨率和尺寸
 
+>缺点：屏幕大果粒，究极马赛克掌机，一般人接受不了。
 
-
-
-![img](https://p2.bahamut.com.tw/B/2KU/71/0000320471.JPG)
-
-
-
-
+![img](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405040346108.jpeg)
 
 >​															**为什么不优先在日本发售？**
 >
 >北美地区通常是一个重要的市场，因此很多公司会选择在那里首发产品。通过在北美首发，公司可以获得更大的曝光度和市场份额，同时也可以测试产品在重要市场的接受程度和反馈。
-
 
 
 
