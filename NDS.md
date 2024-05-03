@@ -25,9 +25,9 @@ NDS 20周年：https://baijiahao.baidu.com/s?id=1784332871502510100&wfr=spider&f
 ​	初代NDS，因体型厚大，外箱长得像饭盒，被称为 **饭盒机**，也是NDS初代机型，发售于2004年11月21日。
 
 - 发售价：15000日元（约1150人民币 — 汇率：100日元 = 7.66人民币）
-
+- 重量：275克
 - 按键：采用较软 **锅仔片** 按键
-- 屏幕：分辨率（256 x 192），尺寸（3英寸）
+- 屏幕：半透过反射型TFT彩色液晶屏（两级亮度调节）分辨率（256 x 192），尺寸（3英寸）
   - 上下屏均采用 **相同** 分辨率和尺寸
 - 插槽：支持 **DS卡槽** 和 **GBA卡槽（向下硬兼容GBA）**
 
@@ -40,12 +40,37 @@ NDS 20周年：https://baijiahao.baidu.com/s?id=1784332871502510100&wfr=spider&f
 ​	[Nintendo](https://baike.baidu.com/item/Nintendo/6732440?fromModule=lemma_inlink) DS Lite（NDSL） 是 **DS系列** 的第二代产品，是对饭盒机（NDS）的全面改进和升级，也是系列中销量最高的（9340万台），发售于2006年3月2日。
 
 - 发售价：16800日元（约1150人民币 — 汇率：100日元 = 6.86人民币）
+- 重量：218克
 - 按键：采用 **导电胶** 按键
-- 屏幕：背光高亮屏（4级亮度调节）分辨率（256 x 192），尺寸（3英寸）
+- 屏幕：反射型透过式TFT彩色液晶屏（4级亮度调节）背光高亮屏（4级亮度调节）分辨率（256 x 192），尺寸（3英寸）
   - 上下屏均采用 **相同** 分辨率和尺寸
 - 插槽：支持 **DS卡槽** 和 **GBA卡槽（向下硬兼容GBA）**
 
-![image-20240503113842940](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405031141031.png)
+>优点：NDSL在体积、外观、便携性和屏幕方面对NDS（饭盒机）进行了改良，使其成为更受欢迎的掌上游戏机。
+
+![img](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405040330318.jpeg)
+
+## 3. NDSi
+
+​	[Nintendo](https://baike.baidu.com/item/Nintendo/6732440?fromModule=lemma_inlink) DSi（NDSi） 是 **DS系列** 的第三代产品，是对上代机型 NDSL 的升级改进款，引入了 **系统** 的概念和增加了内置摄像头，为用户提供了更多功能和体验。发售于2008年11月1日。
+
+- 发售价：18900日元（约1270人民币 — 汇率：100日元 = 6.74人民币）
+
+- 重量：214克
+- 摄像头：内置摄像头和外置摄像头，可以进行照片拍摄和图像处理（有几个摄像头独占游戏）
+  - 外置摄像头像素：0.3万像素（30,000像素）
+  - 内置摄像头像素：0.3万像素（30,000像素）
+- 按键：采用 **锅仔片** 按键
+- 屏幕：反射型透过式TFT彩色液晶屏（较于上代屏幕有所改善，5级亮度调节）分辨率（256 x 192）屏幕尺寸（3.25英寸）
+  - 上下屏均采用 **相同** 分辨率和尺寸
+- 插槽：支持 **DS卡槽** 和 **SD卡槽**
+  - SD卡槽：用于存储照片、音乐和下载的应用程序
+
+>优点：相较于前代硬件有所提升，ARM9的主频翻了一倍，内存比NDSL多4倍（NDSL：4MB，NDSi：16MB），增加了摄像头，支持更好的音频效果。
+>
+>缺点：不兼容GBA卡槽（前期游戏阵容不足，才带GBA卡槽）
+
+![img](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405040330440.jpeg)
 
 
 
@@ -53,15 +78,11 @@ NDS 20周年：https://baijiahao.baidu.com/s?id=1784332871502510100&wfr=spider&f
 
 
 
+![img](https://p2.bahamut.com.tw/B/2KU/71/0000320471.JPG)
 
 
 
 
-
-
-
-
-<img src="C:/Users/18279/AppData/Roaming/Typora/typora-user-images/image-20240503113344428.png" alt="image-20240503113344428" style="zoom: 33%;" />
 
 >​															**为什么不优先在日本发售？**
 >
