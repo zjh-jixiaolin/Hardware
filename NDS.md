@@ -68,7 +68,7 @@ NDS 20周年：https://baijiahao.baidu.com/s?id=1784332871502510100&wfr=spider&f
 
 >优点：相较于前代硬件有所提升，ARM9的主频翻了一倍，内存比NDSL多4倍（NDSL：4MB，NDSi：16MB），增加了摄像头，支持更好的音频效果。
 >
->缺点：不兼容GBA卡槽（前期游戏阵容不足，才兼容GBA卡槽）
+>缺点：不兼容GBA卡槽（前期游戏阵容不足，NDSL才兼容GBA卡槽）
 
 ![img](https://raw.githubusercontent.com/zjh-jixiaolin/map_strong/main/202405040330440.jpeg)
 
